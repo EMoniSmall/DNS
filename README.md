@@ -15,7 +15,9 @@
 
 - Delete Records from the server and inspect/clear client DNS Cache
 
-- Gain an understanding of "CNAME" records. 
+- Gain an understanding of "CNAME" records.
+
+- Gain an understanding of Root Hints
 
 <h2>Inspecting A-Records </h2>
 
@@ -61,7 +63,23 @@ Step 4: In Command Prompt, type ipconfig /flushdns. If you get the message, "The
 Step 5: Ping Mainframe once more, and you'll see that the IP for mainframe is now 8.8.8.8. 
 
 > [!Note]
-> Because the local cache has been flushed, pinging mainframe again will make Client-1 go through the DNS server to find the mainframe again but will return this time with its new IP address. 
+> Because the local cache has been flushed, pinging mainframe again will make Client-1 go through the DNS server to find the mainframe again but will return this time with its new IP address.
+
+<h2>CNAME Records</h2>
+
+> [!Note]
+> A CNAME which stands for Canonical Name, is a type of DNS record that's used to map one domain to another. An alias for another name. 
+
+Step 1: Open DC-1 Remote Desktop. Inside DNS Manager, Right-Click > New Alias (CNAME). Name it "search" and under Full qualified domain name for target host, enter www.google.com.
+
+Step 2: Return to Client-1 Command Prompt and type in ping search. You'll see that pings google.com successfully. 
+
+<h2>Root Hints</h2>
+
+> [!Note]
+> What is a Root Hint?
+> Inside DC-1's properties, it describes "Root Hints resolves queries for zones that do not exist on the local DNS server. They are only used if forwarders are not configured or fail to respond." If a computer doesn't know a certain site, such as Netflix.com, it uses a root hint to give the computer an idea of where to begin searching for the website. An example of a Root Hint can be .com, .net, .org, and so on.
+
 
 
 
